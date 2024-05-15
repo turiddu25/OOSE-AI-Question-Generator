@@ -1,0 +1,10 @@
+[
+    {
+        "question": "What is a happy test?",
+        "answer": "When there are clean cases that go through the system."
+    },
+    {
+        "question": "What is a fail scenario?",
+        "answer": "Test scenarios where things go wrong."
+    }
+]

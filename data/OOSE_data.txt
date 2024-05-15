@@ -1,0 +1,1802 @@
+# OOSE Cheat Sheet
+
+# Object-Oriented Software Engineering 2 Cheat Sheet
+
+# Week 2 – 2.1 (Unit Testing)
+
+# 2.1.1 - Testing
+
+Testing
+
+- Prevents known errors
+- Prevents the future introduction of bugs when someone re-factors or modifies your working code (would be caught by testing)
+- Difficult to test for everything, so some bugs will remain
+- Happy tests are testing with positive scenarios, clean cases that go through the system (test to pass)
+- Fail scenarios are bad testing scenarios (known bad inputs) where things should go wrong (test to fail, test handling of failure)
+
+Levels of testing
+
+- Acceptance
+- System
+- GUI Testing
+- API Testing
+- Integration Testing
+- Unit Testing
+- Code Review
+
+- Code review – when you make a change, you submit your code to another software engineer to review it; they may spot bugs, highlight insufficient testing, or highlight existing code within the codebase that could be used in place of your code
+- Unit testing – test a method with a specific set of input values to get a given output value
+- Integration testing – test that your code works and interacts well with other applications / third-party APIs
+- API testing – e.g. for a public-facing API, testing various API requests and ensuring the response is correct
+- GUI testing – test GUI by using / interacting with elements on screen (can be automated)
+- System testing – like integration testing, but refers to validation of a complete system/build rather than testing interaction with a selection of applications / APIs
+- Acceptance testing – customer/client validates system against their requirements
+---
+#
+
+# Testing Characteristics Cheat Sheet
+
+# Testing Characteristics
+
+- Functionality – test the functionality/business use of the application
+- Usability – testing speed and ease of use
+- Security/penetration testing – test if anything that is meant to be encrypted is encrypted, test if people can gain unauthorized access to parts of the system, test handling of DDoS attacks, etc
+- Performance/efficiency testing – test amount of network traffic used, general speed, memory usage, carbon impact, etc
+- Portability – test if application can be deployed on different browsers, operating systems, web/native mobile versions
+- Reliability – test application’s resilience to faults/failures, how quickly it can recover / be restored
+
+# Testing Setup
+
+- Manual testing
+- ad-hoc: tests run on demand and when required
+- test suite – a set of tests run together
+- Automated testing
+- build and run automated unit tests and integration tests
+- useful metric: code coverage (proportion of lines of code that tests will cause to be executed), higher coverage % of tests = higher confidence for tested class/application etc
+
+# What makes a good test?
+
+- Edge cases (input values on the lower/upper edge of expected values)
+- Consider test volume (e.g. testing all numbers 1-5000 is very expensive, so better to test 1, 2, 50, 5000 for fast feedback)
+- Multiple calls (e.g. two people try to book tickets simultaneously)
+- Empty, negative, positive values
+- Failures (test for timely notification of user for failures, test for too many retries (carbon footprint)) etc
+- Combination of calls (call methods in different orders, different combinations, etc)
+---
+#
+
+# OOSE Cheat Sheet
+
+# OOSE Cheat Sheet
+
+# Design Patterns UML Diagrams
+
+# Design Patterns UML Diagrams
+
+# Design Patterns UML Diagrams
+---
+#
+
+# Course Cheat Sheet - OOSE
+
+# Cheat Sheet for OOSE Course
+
+# Design Patterns UML Diagrams
+
+# Design Patterns UML Diagrams
+
+# Design Patterns UML Diagrams
+
+- Singleton Pattern
+-
+Factory Method Pattern
+-
+Observer Pattern
+
+# Bad Assertions
+
+- Never do assertTrue(a == b), use assertEquals instead
+- Never do assertEquals(true, methodCall()), use assertTrue instead
+- Never do assertSame(a, b), this is for comparing objects, not values, use assertEquals instead
+
+# Advanced Testing
+
+# Chaos Engineering
+
+- Testing system ability to withstand failure in production environments
+- Simulating chaos – e.g. shutting down servers, testing load balancing systems (listening to server “heartbeat” to detect and avoid down servers), ensuring server-to-server transactions handle servers being down, etc
+- Latency injection – ensuring functionality is still correct with added latency, a slower response
+- Resource exhaustion – utilise high amount of resources and analyse how system reacts
+
+# Accessibility Testing
+
+- Test accommodations for customers/users who are blind or partially sighted, colourblind, deaf or hard of hearing, have limited mobility, or are older
+- Examples:
+
+# A/B Testing
+
+- Use an experiment to test a hypothesis (idea)
+- Create two user groups (“cells”), a base default cell and a new user group
+- Show one group variation one (default behaviour), and another variation two (changed behaviour)
+- Use logging data to determine a winner
+---
+#
+
+# Encapsulation - Big 4 OO Design Principles
+
+# Encapsulation
+
+# Definition of encapsulation
+
+- Is the bundling of data with the methods that logically operate on that data while restricting direct access to an object’s components
+- Hides the inner working of the object from other developers
+- Only expose enough details for other developers to reuse the code in their own work
+- Easier for the original developer to reuse their own code after a long time away
+
+# Benefits of encapsulation
+
+- Granular control – public variables (anyone can get/set), or private variables (implement getter/setter methods as necessary)
+- Data integrity – keeping data changing logic within the object it is stored ensures only that class controls what is stored in it
+- Maintainability – when a change needs to be made to a well-encapsulated class, there is less worry about breaking other classes that depend on it
+
+# How to encapsulate in Java
+
+- Use visibility modifiers (public, private, protected) (and default)
+- Start with as narrow a scope as necessary (start with private)
+- Write a get/set method when access is needed
+---
+#
+
+# Abstraction Cheat Sheet
+
+# Abstraction Cheat Sheet
+
+# Definition of Abstraction
+
+- Is hiding as much detail as possible from the “user” to allow concrete implementations to apply to different, but related types of data
+
+# Difference between Encapsulation and Abstraction
+
+- Encapsulation refers to the packing together of data and functionality and hiding implementation details
+- Abstraction refers to the ability for code to operate on different but related types of data
+
+# Benefits of Abstraction
+
+- Knowing about an abstract idea (e.g. being comparable) means you can write code that works on other code using this abstract idea (e.g. knowing whether other objects are bigger/smaller/the same size as your object)
+- Example: when implementing sort for an object of a class, we don’t know about the class, and we don’t know about the Collections.sort() method
+- …but we can still implement list sorting functionality due to the abstract idea of being comparable
+- You can work upon objects that you have not seen before, so long as you share a concept with the people who made those objects
+
+# Abstraction in Java
+
+- Implemented by abstract classes and interfaces
+- Consider the following example interface:
+public interface Animal() {
+String getSound();
+}
+- Any animals will need to implement the abstract idea of making a sound
+- public class Cat implements Animal {
+public String getSound() {
+return “Meoww”;
+}
+public void scratchPost(){…}
+}
+---
+#
+
+# Cheat Sheet - OOSE
+
+# Cheat Sheet for OOSE Course
+
+# Design Patterns UML Diagrams
+
+# Design Patterns UML Diagrams
+
+# Design Patterns UML Diagrams
+---
+#
+
+# Inheritance Cheat Sheet
+
+# Principle 3 – Inheritance
+
+# Definition of inheritance
+
+- The ability for objects to inherit variables and functional behaviour from a parent object
+
+# Benefits of inheritance
+
+- Code re-use – write less code by not repeating code
+- Extensibility – can extend class logic as needed
+- Hiding data – can keep data private
+
+# Hierarchical inheritance in Java
+
+- public class Jigsaw extends PowerTool
+- public class Drill extends PowerTool
+- public class CircularSaw extends PowerTool
+- // We code base methods and maintain code in one place
+
+# Multi-level inheritance in Java
+
+- public class ImpactDriver extends Drill
+- // build up layers of specialist functionality
+
+# Abstract keyword in Java
+
+- Can be used to make abstract classes (so superclass cannot be instantiated, only subclasses)
+- Abstract classes can still contain concrete implementations
+- Can be used to make abstract methods (cannot be called, only implementations in subclasses can be called)
+---
+#
+
+# Principle 4 - Polymorphism Cheat Sheet
+
+# Principle 4 - Polymorphism
+
+# Definition of polymorphism
+
+- Ability for the same method name to do different things depending on the context it is used in
+
+# More on polymorphism
+
+- Strongly linked with inheritance – the most common usage of polymorphism is overriding a superclass method
+- Most specific of the OO principles
+- Most critiqued – not all developers think it is important/necessary/useful to reuse method names a lot
+
+# Polymorphism in Java – overriding
+
+- Overriding is when a subclass replaces a superclass method with its own code
+- Method calls use the new behavior by default
+- Use super keyword to access superclass behavior
+
+# Polymorphism in Java – overloading
+
+- Multiple methods in the same class have the same name, but different input parameters
+
+# Inheritance or interfaces?
+
+- Inheritance is realized with abstract/extends keywords, but this often only realizes partial abstraction
+- Full abstraction is realized with interface/implements keywords
+- Inheritance:
+- Allows for code-reuse as subclasses get the code of the superclass
+- Can have abstracted elements with the abstract keyword
+- But can only allow inheritance from 1 class
+- Interfaces:
+- Create blueprints to guide program development with no details of implementation needed at all
+- Can allow multiple blueprints to be implemented in a single class
+- But do not share any code
+
+# Example of interfaces allowing implementation of many abstract ideas
+
+- public class Cart implements collidable, physical, hitable
+- public class Child implements awareable, pathable
+- public class Pedestrian implements awareable, pathable, hitable, fightable
+- public class Guard implements collidable, physical, awareable, pathable, hittable, fightable
+---
+#
+
+# Understanding Bugs - Cheat Sheet
+
+# Understanding Bugs - Cheat Sheet
+
+# Strict definition of software bugs
+
+- Describes a flaw, mistake, or failure in a computer system that produces an incorrect or unexpected result, or causes it to behave in unintended ways
+- Bugs can be symptoms or clues for larger problems with something we have built, or a lack of understanding of code that was written
+
+# What makes a bug?
+
+- A software bug occurs if one or more of the following 5 criteria are true:
+- the software doesn't do something that the product specification says it should do
+- the software does something that the product specification says it shouldn't do
+- the software does something that the product specification doesn't mention
+- the software doesn't do something that the product specification doesn't mention but should
+- the software is difficult to understand, hard to use, slow, or - in the software tester's eyes - will be viewed by the end user as incorrect
+
+# Causes of bugs
+
+- Bad specification (unwritten, incomplete, ambiguous, constantly changing, poorly communicated to dev team) is the number one cause of bugs
+- The next large source of bugs is design:
+- inappropriate modelling, lack of modelling tools (e.g. used library that can’t meet spec)
+- pressure to ship a product (time to market pressure)
+- Developers frequently consider design an unimportant step leading to inappropriate consideration of design choices / alternatives
+- Coding errors (software complexity, poor documentation, limited time, programmer skills)
+
+# Typical coding mistakes
+
+- Improper use of class library
+- Inheritance implementation error (inheriting bugs from superclass)
+- Wrong message, wrong object, missing operation
+- Override error, data flow error
+- Misused local variable, scope boundary error
+- Domain knowledge (not understanding technical area of product)
+- Algorithm error
+---
+#
+
+# Software Reliability Cheat Sheet
+
+# Software Reliability Cheat Sheet
+
+# What is software reliability?
+
+- The probability of failure-free software operation for a specified period in a specified environment
+- Denotes a product's reliability and impacts customer satisfaction/retention
+- Reliability requirements differ across domains (e.g. can’t have unreliable transactions in banking, can’t have servers down for a game, safety-critical systems in healthcare)
+
+# More on software reliability
+
+- Nothing to do with aging, only bugs (more bugs = less reliable)
+- Since failures seem random, we apply Bayesian (probabilistic) theories over time for reliability measures:
+- R(t) – probability of software still functioning at a given point in time (t)
+- Availability/uptime – percentage of time a service will be available (especially useful for online services)
+- Mean time between failures (MTBF) – how long on average the system can run until the next failure
+
+# Cost of bugs
+
+- Bug cost grows logarithmically the longer they go uncaught
+- Most forms of testing only find 1 in 3 bugs, and all tests together remove ~85% of bugs
+
+# Bug tracking workflows
+
+1. A tester finds a bug and reports it
+2. The bug is assigned to a manager for initial triage
+3. The manager resolves it or assigns it to a developer
+4. Resolved bug is returned to a tester
+5. The tester either closes the bug or reopens it with additional information or comments which start step 2 again
+
+Users and developers can file bug reports so software developers can fix them.
+
+Bug reports are added to issue tracking systems or bug repositories (Apache Bloodhound, Jira, Bugzilla, Trac, etc).
+---
+#
+
+# Bug Triage and Software Tester Goals
+
+# Bug Triage
+
+Assigning a bug to the most appropriate/capable developer to fix it.
+
+Triage analyses and assigns bug fixers for each new bug, prioritizing based on seriousness.
+
+Effective bug triage needs:
+
+- Knowledge about system/project
+- Descriptive bug reports
+- Good rates of reporting of bugs
+- Coordination with developers on different projects and with various specialties
+
+# Software Tester Goals
+
+Find bugs, and find them as early in development as possible, and make sure they get fixed.
+
+Perfection is often unattainable (some bugs will have to be tolerated temporarily).
+---
+#
+
+# Design Patterns Cheat Sheet
+
+# Design Patterns Cheat Sheet
+
+# Strategy Pattern
+
+First design principle:
+
+- Identify the aspects of your application that vary, and separate them from what stays the same
+
+Second design principle:
+
+- Program to an interface, not an implementation
+- Notice the no-implementation
+- A common necessity for this approach
+
+Instantiating behaviour example:
+
+public class MallardDuck extends Duck {
+public MallardDuck() {
+quackBehaviour = new Quack();
+flyBehaviour = new FlyWithWings();
+}
+public void performQuack() {
+quackBehaviour.quack();
+}
+}
+
+If the duck got hurt, could update behaviour by replacing flyBehaviour with a new reference (e.g. to an object that has a flyWithInjuredWing method)
+
+Has-A beats out Is-A:
+
+- Design principle: favour composition over inheritance
+- e.g. Duck has a fly behaviour, not is a fly behaviour
+- Enables switching out behaviours at runtime
+
+# UML Diagram for Strategy Pattern
+
+#
+#
+
+# Design Patterns Cheat Sheet
+
+# Design Patterns Cheat Sheet
+
+# Strategy Pattern
+
+First design principle:
+
+- Identify the aspects of your application that vary, and separate them from what stays the same
+
+Second design principle:
+
+- Program to an interface, not an implementation
+- Notice the no-implementation
+- A common necessity for this approach
+
+Instantiating behaviour example:
+
+public class MallardDuck extends Duck {
+public MallardDuck() {
+quackBehaviour = new Quack();
+flyBehaviour = new FlyWithWings();
+}
+public void performQuack() {
+quackBehaviour.quack();
+}
+}
+
+If the duck got hurt, could update behaviour by replacing flyBehaviour with a new reference (e.g. to an object that has a flyWithInjuredWing method)
+
+Has-A beats out Is-A:
+
+- Design principle: favour composition over inheritance
+- e.g. Duck has a fly behaviour, not is a fly behaviour
+- Enables switching out behaviours at runtime
+
+# UML Diagram for Strategy Pattern
+
+# UML Diagram for Strategy Pattern
+---
+#
+
+# Strategy Pattern Cheat Sheet
+
+# Strategy Pattern
+
+The Strategy Pattern is the first design pattern that:
+
+- Defines a family of algorithms, encapsulates each one, and makes them interchangeable
+- Allows the algorithm to vary independently from the class using it
+
+# Strategy Pattern Example Class Diagram
+
+Client makes use of encapsulated family algorithms for both Aying and quacking:
+
+# Strategy Pattern Example UML Diagram
+
+The Context maintains reference to one of the concrete strategies and communicates with this strategy object only via the strategy interface.
+
+The Client creates a specific strategy object and passes it to the context. The context exposes a setter which lets clients replace the strategy associated with the context at runtime.
+---
+#
+
+# Design Patterns Cheat Sheet
+
+# Design Patterns Cheat Sheet
+
+# What are design patterns?
+
+- Strategies we use when we recognise a type of information management problem
+- Less specific than OO principles or programming languages, relates to recognising patterns within common problems
+
+# Types of problem
+
+- Can be divided into three design pattern categories
+- Creational design patterns:
+- We need to manage the instantiation of an object, for example, we want to have a single instance of an object managing a database connection
+- Structural design patterns:
+- We need to organise how we let groups of classes interact with one another, for example, we need two class instances in different JVMs to talk to one another
+- Behavioural design patterns:
+- We need to manage common patterns of communication to an object respecting the Open/Closed paradigm, for example, we want to let behaviour of an object or system change at runtime
+
+# Benefits of a shared vocabulary (using design patterns over specific description of problems)
+
+- Powerful (design patterns create a language that lets you talk about the problems and solutions)
+- Saying more with less (one word can convey an entire structure)
+- Staying in design stage longer (when you don’t have to talk about implementation, you can stay at the design level thinking about the big problems)
+- Reduce misunderstandings (the specific nature of design patterns means there is less chance for miscommunication)
+- Onboarding and community building (a rapid way of junior developers to get up to speed in their team, a focused way to teach big ideas)
+---
+#
+
+# Bug Patterns Cheat Sheet
+
+# Bug Patterns Cheat Sheet
+
+# Bug Pattern 1 - Predictable Random Number Generation
+
+Java’s built-in random is not truly random (causes problems for security, using random numbers as seed for encryption etc)
+
+Fix:
+
+- Replace with genuine random number generator (e.g. from Apache Commons library)
+
+# Bug Pattern 2 - Object Deserialization
+
+Serialization is turning objects into byte streams used for storage in file systems and network transmission.
+
+Deserialization (turning byte streams back into objects) has a history of vulnerabilities (remote code execution when deserializing untrusted data etc).
+
+Fix:
+
+- Never deserialize input from a remote user if it can be avoided
+- When it can’t be avoided, have robust checks on the domain input, input sanitization
+
+# Bug Pattern 3 - Trust Boundary Violations
+
+Trust boundaries are metaphorical lines drawn through a program. On one side, data is trustworthy, on the other it is untrusted.
+
+Validation logic allows data to move from untrusted side to trusted side, to become trusted data.
+
+Trust boundary violations occur when a program blurs the lines between trusted and untrusted data.
+
+Fix:
+
+- Prefer data from a trusted location rather than direct user input
+- If unavoidably using untrusted data, add validation
+
+# Other Bug Patterns Mentioned Briefly in Lecture
+
+- Null pointer exceptions
+- Infinite recursion
+---
+#
+
+# Bug Patterns and Debugging
+
+# Bug pattern categories
+
+- Correctness of the program
+- infinite loops, reading unwritten fields
+- Not conforming to best practice (bad practice)
+- failing to close file readers
+- Internationalisation problems (not adapting to other languages/locales)
+- Malicious code vulnerabilities (unsafe deserialization)
+- Multithreaded correctness (access flags and concurrency)
+- Performance (slow code)
+- Security (bad random number generation)
+- Dodgy code (unused variables, unchecked casts)
+
+# More on bug patterns
+
+- Not all bugs are subtle and unique
+- prevalent enough such that we can name and categorise them by programming language
+- Many bugs share common characteristics
+- A bug pattern is a code idiom that is usually a bug
+- detection of many bug patterns can be automated using simple analysis techniques
+
+# What is debugging?
+
+Debugging is the process of using the symptoms of a bug to find and fix its underlying cause in code/design/specification
+
+# Ways to debug code
+
+- Automated/static analysis tools (to catch potential issues without coder time)
+- Debugging tools in most IDEs
+- Threat modelling
+- look at design of code, write out or make diagrams showing potential failures
+- Code review (have external party look at code to gauge quality/readability)
+
+# Code inspection
+
+Limitations of manual examination of source code:
+
+- labour intensive
+- subjective (incorrect source code may appear to be correct)
+---
+#
+
+# Static Analysis Theory Cheat Sheet
+
+# Static Analysis Theory
+
+- Static analysis is the use of a program to analyze a program for bugs
+- Analysis of statements, control flow, method calls, etc
+- Advantages:
+- Can analyze many potential program behaviors
+- Doesn’t get bored
+- Relatively objective
+- Static analysis is limited by the Halting Problem:
+- We can never say with certainty if a program will terminate
+- Estimating whether a given program has a bug or can reach a certain state relies on (quite good) approximations of the program
+
+# Trade-off between soundness and precision of static analysis tools
+
+- Soundness – an alert is raised whenever a bug is in the program
+- Unsoundness – false negatives (a bug that is in the analyzed code isn’t found)
+- Precision – every bug alert in the program is an actual bug
+- Imprecision – false positives (piece of code that does not cause a bug is attributed to a bug)
+
+# More on static analysis trade-offs
+
+- Bug detection is an approximation involving a trade-off between soundness, precision, and execution time
+- Could deliberately overestimate possible program behaviors:
+- Never misses a bug, but more imprecise
+- There may be so many false positives that the real bugs cannot be found
+- Could deliberately underestimate:
+- Misses some bugs but anything caught is an actual bug (precise, unsound)
+- May miss critical bugs
+- Balanced approximation:
+- Static analysis tools do not need consistent output approximations
+- Neither sound nor complete (some false negatives/positives but still useful)
+---
+#
+
+# OOSE Cheat Sheet
+
+# Oose Cheat Sheet
+
+# Design Patterns UML Diagrams
+
+Below are the UML diagrams for each design pattern:
+
+Singleton Pattern
+
+Factory Method Pattern
+
+Observer Pattern
+
+#
+#
+
+# OOSE Cheat Sheet
+
+# Oose Cheat Sheet
+
+# Design Patterns UML Diagrams
+
+This is a cheat sheet for my course OOSE. The only diagrams here are for UML diagrams of each design pattern.
+
+- Singleton Pattern
+
+- Factory Method Pattern
+
+- Observer Pattern
+---
+#
+
+# Design Patterns Cheat Sheet
+
+# Object-Oriented Software Engineering (OOSE) - Design Patterns Cheat Sheet
+
+# UML Diagrams for Design Patterns:
+
+# 1. Car Example - 1-to-1 Relationship
+
+# 2. Car Example - 1-to-0-to-1 Relationship
+
+# 3. Car Example - 0-to-1-to-many Relationship
+
+# 4. Car Example - 0-to-many-to-1-to-many Relationship
+---
+#
+
+# OOSE Cheat Sheet
+
+# OOSE Cheat Sheet
+
+# Encapsulation in UML
+
+- Shown by the +/- symbols (variables/methods should be “-“ unless they need not be)
+- Basic set/get methods sometimes omitted for readability in large classes
+
+# Realisation in UML
+
+- Used when one class realises another class (makes it concrete)
+- When one class extends an abstract class or implements an interface
+- Shown by a dotted line with a hollow arrow
+
+<<interface>>
+Animal
+makeSound() : String
+
+Dog
+- name : String
+- chaseCar()
+
+Cat
+- name : String
+- scratchPost()
+
+# Inheritance in UML
+
+- Shown by a solid line with a hollow arrow
+
+PowerTool
+- batteryPowered : boolean
+- lastElectricalTest : Date
+- operatingLifetime : int
++ serviceTool()
++ needsService() : boolean
+
+PowerDrill
+- bitType : String
+- torque : int
+- run(int) : int
+---
+#
+
+# OOSE Cheat Sheet
+
+# Object-Oriented Software Engineering (OOSE) Cheat Sheet
+
+# UML Diagrams for Design Patterns
+
+# Multi-level Inheritance in UML
+
+# Hierarchical Inheritance in UML
+
+# Multiple Inheritance in UML (not possible in Java)
+---
+#
+
+# OOSE Cheat Sheet
+
+# OOSE Cheat Sheet
+
+# Design Patterns UML Diagrams
+
+- Overriding methods in UML
+-
+
+Aggregation in UML
+-
+
+Composition in UML
+---
+#
+
+# Observer Design Pattern
+
+# Observer Design Pattern
+
+# Weather station problem – naïve solution
+
+public void measurementsChanged() {
+firstPhone.update(temp, humidity, pressure);
+secondPhone.update(temp, humidity, pressure);
+watch.update(temp, humidity, pressure);
+}
+
+- When the data changes we could update each display unit individually
+- But this is programming to concrete implementations rather than an interface (need to add a new call to an update method for each new display)
+- There is no way to add/remove display units at runtime
+- We have not encapsulated what has changed
+- This breaches the SOLID Open/Closed principle (that you should not need to modify existing code to extend the application)
+
+# Observer pattern
+
+- Used when you need to share information with others without knowing who they are, how many of them there are, or what they will do with the information
+- An observer is interested in a subject
+- Each observer registers with the subject
+- The subject notifies the observers when something changes
+
+# Observer in Java
+
+- Two interfaces, Subject (e.g. could be called “Publisher”/ “Watchable” and Observer (e.g. could be called “Subscriber” / “Watcher”)
+- Subject contains:
+- registerObserver(Observer observer)
+- removeObserver(Observer observer)
+- notifyObserver()
+- Observer contains:
+- update()
+---
+#
+
+# OOSE Cheat Sheet
+
+# Design Patterns - Observer
+
+# Observer Class Diagram
+
+Note: This diagram may not strictly adhere to pure UML standards. Be cautious when using it for exams or reference.
+
+# Key Components:
+
+- Subject: Interface with methods registerObserver(), removeObserver(), notifyObservers()
+- Observer: Interface with method update()
+- ConcreteSubject: Implements Subject interface with additional methods
+- ConcreteObserver: Implements Observer interface with update() method
+
+Additional notes:
+
+- Observers are registered using an ArrayList
+- Observers are removed by deleting them from the ArrayList
+- Observers are notified by iterating through the ArrayList and invoking update()
+
+# Observer Example UML Diagram
+
+Summary:
+
+- Publishers issue events to subscribers
+- Subscribers respond to events through the update() method
+- Concrete Subscribers implement actions based on notifications
+- Subscribers require contextual information for handling updates
+
+Client interaction:
+
+- Clients create publishers and subscribers separately
+- Subscribers register for updates from publishers
+---
+#
+
+# OOSE Cheat Sheet
+
+# OOSE Cheat Sheet
+
+# Design Patterns UML Diagrams
+
+# Observer Pattern
+---
+#
+
+# Design Pattern Cheat Sheet - Observer Pattern
+
+# Observer Pattern
+
+# Real World Problems
+
+- Consider scale of updates – e.g. if temperature measurements are to every 0.0001 C, is it necessary to notify observers of every change?
+- Consider frequency of updates – e.g. sensor is 10,000Hz, is it necessary to update at this rate?
+- Size of updates – e.g. sending out serialized objects instead of floats could result in a lot of data transfer on network
+
+# Improvements to Pattern
+
+- Move from a push model (send data every change) to a pull model (notify observers upon change, and they decide if they want to pull data)
+- Only send data upon significant-enough change (i.e. implement a flag to mark when changes in data are significant enough to warrant an update)
+
+# UML Diagram
+
+# UML Diagram
+---
+#
+
+# Design Patterns Cheat Sheet
+
+# Design Patterns Cheat Sheet
+
+# UML Diagrams for Design Patterns
+
+#
+#
+
+# Design Patterns Cheat Sheet
+
+# Design Patterns Cheat Sheet
+
+# UML Diagrams for Design Patterns
+---
+#
+
+# Design Pattern Cheat Sheet
+
+# Design Pattern Cheat Sheet
+
+# UML Diagrams for Design Patterns
+
+- Creational Patterns
+
+- Structural Patterns
+
+- Behavioral Patterns
+---
+#
+
+# Quality Assurance Cheat Sheet
+
+# Quality Assurance Cheat Sheet
+
+- How can you validate/check requirements have been met?
+- How can you test performance?
+- What is the reputational risk/cost/loss of earnings relative to the cost to make the solution robust (if not important, could just make robust at a later date)
+---
+#
+
+# Design Patterns Cheat Sheet
+
+# Design Patterns Cheat Sheet
+
+# Singleton Pattern
+
+Used in cases where we want to guarantee there is only ever one instance of an object.
+
+Examples:
+
+- Logging instance (write out to an error log for a safety critical system)
+- Registry objects (unique within OS)
+- Device drivers (one instance of driver running at once)
+- Connection pools and threads
+
+# Singleton Pattern in Java
+
+1. Define private constructor so that multiple instances cannot be arbitrarily created
+2. Create a private static instance variable for the object the first time it is needed
+3. Public static getInstance method retrieves that one instance (if the unique instance is null then create new instance)
+
+# UML Diagram for Singleton Pattern
+
+#
+#
+
+# Design Patterns Cheat Sheet
+
+# Design Patterns Cheat Sheet
+
+# Singleton Pattern
+
+Used in cases where we want to guarantee there is only ever one instance of an object.
+
+Examples:
+
+- Logging instance (write out to an error log for a safety critical system)
+- Registry objects (unique within OS)
+- Device drivers (one instance of driver running at once)
+- Connection pools and threads
+
+# Singleton Pattern in Java
+
+1. Define private constructor so that multiple instances cannot be arbitrarily created
+2. Create a private static instance variable for the object the first time it is needed
+3. Public static getInstance method retrieves that one instance (if the unique instance is null then create new instance)
+
+# UML Diagram for Singleton Pattern
+---
+#
+
+# Singleton Pattern Cheat Sheet
+
+# Singleton Pattern
+
+# Lazy Instantiation
+
+Only creating the object when we have to use it for the first time is called "lazy instantiation". This approach is not thread-safe because if two threads are running and both make the instantiation call, we can have two instances of the singleton class. Singleton is widely used in multithreaded applications, so we must be aware of this.
+
+# Alternatives to Private Constructor
+
+- Putting a Boolean in the class to track whether it has been instantiated wouldn't work because we cannot access the variable and it won't stop new keyword calls.
+- Making a singleton management class wouldn't work because someone could make a new instance of the management class, and it doesn't inherently stop people from reusing the singleton classes.
+
+# Singleton Pattern Java Code Example
+
+public class SingletonExample {
+private static SingletonExample uniqueInstance;
+
+private SingletonExample() {}
+
+public static SingletonExample getInstance() {
+if (uniqueInstance == null) {
+uniqueInstance = new SingletonExample();
+}
+return uniqueInstance;
+}
+}
+---
+#
+
+# OOSE Cheat Sheet
+
+# Design Pattern: Singleton
+
+This is a cheat sheet for my course OOSE. The only diagrams here are for UML diagrams of each design pattern.
+
+# Singleton Pattern Example UML Diagram
+
+# Singleton Pattern Explanation:
+
+The Singleton class declares the static method getInstance that returns the same instance of its own class.
+
+The Singleton's constructor should be hidden from the client code. Calling the getInstance method should be the only way of getting the Singleton object.
+
+# Criticisms of Singleton Pattern:
+
+- Breaks basic OO principles (can’t easily inherit or extend the singleton class)
+- Can make test-driven development harder to do
+- Often wrongly used to implement global variables when they should be instantiated with the static keyword
+---
+#
+
+# Week 6 – 6.2 (Development Styles)
+
+# Week 6 – 6.2 (Development Styles)
+
+# Single person development/single developer
+
+- A single developer gets all requirements then codes the solution
+- Same person tests solution against requirements
+- Same person deploys to production and does maintenance/fixes
+
+# Problems with single person development
+
+- Person may get sick
+- Person may leave company (loss of knowledge of code if they leave)
+- Their code may not be easily readable by others
+
+# Code review
+
+- One developer writes the code
+- One or more developers review the code and give feedback
+- Seen as a good learning process for novices (e.g. at Google)
+- Having only one expert reviewing may be a bottleneck
+
+# Code review – feedback on solution
+
+- Highlight positive points
+- Constructive feedback on how to improve
+- Negative review can cause bad feeling/break team morale
+- Don’t blame, ask why
+
+# Benefits to solution of code review
+
+- Helps check the code is easy to read and maintain
+- Highlights mistakes
+- Avoids duplication within solution
+- Sharing knowledge of code across team
+- Gives sense of ownership to reviewers
+- Encourages smaller functional units
+- Reviewer can learn coding styles/techniques
+
+# Costs of code review
+
+- Takes time
+- Can cause animosity between team members
+---
+#
+
+# Pair Programming Cheat Sheet
+
+# Pair Programming Cheat Sheet
+
+# Driver-Observer Version
+
+- One driver (creates and types out the code)
+- One observer (watches and looks for mistakes, discusses points)
+- Single monitor or screen share
+- Frequently swap (e.g. every 30 minutes)
+
+# Driver-Navigator Version
+
+- Driver types the code
+- Navigator tells driver what to do, directs the driver
+- Single monitor or screen share, frequently swap
+
+# More on Pair Programming
+
+- Don’t force software engineers to do pair programming, but encourage it
+- Expert with expert may not result in much benefit
+- Expert with novice is good for teaching the novice
+- Novice with novice is good, but better if one person has more background knowledge of the components being changed
+
+# Even More on Pair Programming
+
+- Can be done in-person sitting at the same desk
+- Can be done remote using a virtual tool so driver and observer can be in different locations
+- Can be done with simultaneous editing (virtual, remote locations with individuals editing the same code)
+- Simultaneous editing works via terminal multiplexer, live-sharing through IDE
+
+# Pair Programming Analysis Approach
+
+- Analyse the problem independently then discuss
+- Design a solution and try to find problems with the proposed solution
+- Implement the solution with the driver-observer method
+
+# Benefits of Pair Programming
+
+- Shared knowledge of the solution between the two people (less risk if someone became unwell or quit, no single point of failure)
+- Improves code quality
+- Observer can highlight errors early
+- Joint discussion of best solution
+- Team building through collaboration
+---
+#
+
+# Pair Programming Cheat Sheet
+
+# Pair Programming Cheat Sheet
+
+# Costs of Pair Programming
+
+- Can take longer to develop with discussion
+- More resources spent on development compared with single developer (but may save resources later on due to higher quality)
+- There can be “dead time” if the driver ignores the observer
+- There may be disagreement in the pair on the solution (animosity risk)
+
+# Findings of Pair Programming
+
+- It works better with junior developers
+- It works better on areas with a lack of experience
+- Time taken is higher, but quality is also higher
+- Development effort is higher
+- Good Agile team players work better, anti-social or egotistical programmers poorly
+- Scheduling/time zones can pose an issue
+
+# Promiscuous Pairing
+
+- One driver
+- Multiple different observers (e.g. observers with different areas of expertise)
+- Work with each observer one at a time
+- Good for getting to know the team
+
+# Mob Programming
+
+- One driver writing the code
+- Multiple observers and discussions at the same time
+- Frequent change
+- Can be time consuming
+- Good for production issues (all hands on deck)
+---
+#
+
+# Test Driven Development Cheat Sheet
+
+# Test Driven Development
+
+1. Write Test
+2. Test Fails
+3. Write Code
+
+First, write the test for the functionality you want to add. The test should fail as you haven’t added the code yet. Then, write just enough code to pass the test. You can now refactor the code (e.g. by splitting a large method, reusing existing methods/code, simplifying the code, removing duplicate code). Consider de-coupling when refactoring (removing dependencies on other items). Consider cohesion (make each method/class do one thing well).
+
+# Test Driven Development – What are Unit Tests?
+
+- Individual methods or functions with a very specific use case
+- They focus on inputs and outputs
+
+# Pair Develop and Test
+
+- Pair looks at problem and discusses solution
+- One developer codes a solution
+- Other person creates unit tests (to check things work but also to highlight flaws)
+- Provides independence of tests (challenges assumptions of other developer)
+---
+#
+
+# State Design Pattern Cheat Sheet
+
+# State Design Pattern
+
+# Why use the State pattern?
+
+- Removes state logic (workflow of changing state) from core client class (class that is doing the work)
+- No impact to core client class to add a new state
+- Remove/reduce if condition logic
+
+# Traffic light example
+
+- 3 states (red, green, amber)
+- A class for each colour + enumerator for colours from ColourState.getColour()
+- Traffic light controller class (TrafficLight)
+- ColourState class variable to store the colour
+- setColourState() sets the ColourState variable in TrafficLight
+- changeLight() calls ColourState.setState()
+- setState() calls TrafficLight.setColourState() passing the next ColourState
+- changeLights() calls changeLight() a number of times
+
+# State pattern advantages
+
+- Interface has a method for each state transition (action) – separate
+- A new state is just a new subclass of the state interface
+- A new action is just adding a new method across all the state classes
+
+# State pattern disadvantages
+
+- A lot of classes and code
+
+# State pattern class diagram example
+
+(from book, so not pure UML, caveats apply)
+---
+#
+
+# State Pattern Example UML Diagram
+
+# State Pattern Example UML Diagram
+
+The State pattern example UML diagram illustrates how the State pattern works in a software design context. In this pattern, the Context class stores a reference to one of the concrete state objects and delegates state-specific work to it. The State interface declares the state-specific methods that all concrete states must implement. This design ensures that each state has relevant methods and avoids having useless methods in certain states.
+
+Concrete States provide their own implementations for the state-specific methods, avoiding code duplication across multiple states. State objects may store a reference to the Context object, allowing them to fetch necessary information and initiate state transitions. Both the Context and Concrete States can set the next state of the Context and perform state transitions by replacing the state object linked to the Context.
+---
+#
+
+# Factory Pattern - Cheat Sheet
+
+# Factory Pattern
+
+# What is the Factory pattern?
+
+The Factory pattern is a creational pattern that allows multiple instances of different classes, unlike the Singleton pattern which is locked into a single instance of a concrete type.
+
+# Why use the Factory pattern?
+
+- Moves the conditional logic (ifs) to a separate class, helping to keep the client class simple.
+- Client code is not broken by adding new products.
+
+# Conditional logic
+
+- We are making a runtime decision on what object to instantiate.
+- New types of objects require code changes.
+- Potential for duplicate code.
+
+# Pizza Factory Example (Factory Class)
+
+public class SimplePizzaFactory {
+public Pizza createPizza(String type) {
+Pizza pizza = null;
+if (type.equals("cheese")) {
+pizza = new CheesePizza();
+} else if (type.equals("pepperoni")) {
+pizza = new PepperoniPizza();
+} else if (type.equals("veggie")) {
+pizza = new VeggiePizza();
+}
+return pizza;
+}
+}
+---
+#
+
+# OOSE Design Patterns Cheat Sheet
+
+# Factory Pattern
+
+# Factory Pattern Definitions
+
+- Product – the type of thing to be created (e.g. pizza)
+- Factory – decision logic for what will be created (e.g. pepperoni pizza or mocha coffee)
+- Store – manages steps to make the product (e.g. pizza: prepare, bake, cut, box; coffee: prepare, get coffee cup, pour)
+
+# Factory Pattern – Product
+
+- Product is an interface to define actions and attributes (e.g. actions: prepare, get coffee cup, pour; attributes: name from getName, ingredients from getIngredients)
+- Each new product is a new class
+- New classes implement the product interface
+- Each new product class implements the attributes and actions of the product interface
+
+# Factory Pattern – Factory
+
+- Contains conditional logic to create the correct product
+- Contains a createProduct method or similar
+
+# Factory Pattern – Client/Store
+
+- Creates an instance of the product factory
+- Gets the type of product
+- Calls the factory with the type to create the product instance
+- Calls the steps to prepare the resulting product
+---
+#
+
+# OOSE Cheat Sheet
+
+# Otto's Object-Oriented Software Engineering (OOSE) Cheat Sheet
+
+# Design Patterns UML Diagrams
+
+# Pizza Factory Example UML Diagram
+
+# Simple Factory Pattern UML Diagram
+
+# Complex Factory Pattern UML Diagram
+---
+#
+
+# Abstract Factory Pattern Example UML Diagram
+
+# Abstract Factory Pattern Example UML Diagram
+
+Concrete Products are various implementations of abstract products, grouped by variants. Each abstract product (chair, sofa) must be implemented in all given variants (Victorian, Modern).
+
+The Abstract Factory interface declares a set of methods for creating each of the abstract products.
+
+Client (factory: AbstractFactory) - someOperation()
+- ConcreteFactory1
+- createProductA(): ProductA
+- createProductB(): ProductB
+- ConcreteFactory2
+- createProductA(): ProductA
+- createProductB(): ProductB
+
+Concrete Factories implement creation methods of the abstract factory. Each concrete factory corresponds to a specific variant of products and creates only those product variants.
+
+Although concrete factories instantiate concrete products, the signatures of their creation methods must return corresponding abstract products. This way, the client code that uses the factory doesn't get coupled to the specific variant of the product it gets from the factory. The client can work with any concrete factory product variant as long as it communicates with their objects via abstract interfaces.
+---
+#
+
+# OOSE Cheat Sheet
+
+# OOSE Cheat Sheet
+
+# Design Patterns UML Diagrams
+
+UML diagrams for each design pattern will be inserted here.
+---
+#
+
+# Mocking Cheat Sheet
+
+# Mocking
+
+# Used to specify a return value for a method
+
+- A mock can specify one return value
+- Inside a class you need to use a spy instead:
+- When you make a mock, only the methods you mock return anything as mocks create a complete mock/fake object
+- When you make a spy, a real instance of the class is made and you partially/selectively spy/stub specific methods within it, but other methods will be untouched
+
+# Mocking – why
+
+- Speeds up continuous integration testing
+- Faster and earlier feedback
+- Removes dependencies on input and output
+- Removes dependencies on external applications that could be down or slow
+- Code of the application does not need to change
+
+# Mocking with Mockito - basic example
+
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
+
+// make a mock of the calculator class
+Calculator mockCalculator = mock(Calculator.class);
+// when calling firstValue the mock will return 2
+when(mockCalculator.firstValue()).thenReturn(2);
+// will return true
+assertEquals(2, mockCalculator.firstValue());
+---
+#
+
+# OOSE Cheat Sheet
+
+# OOSE Cheat Sheet
+
+# Mocking with Mockito – specific parameter check example
+
+Calculator mockCalculator = mock(Calculator.class);
+
+// if 4 is passed to firstValue upon call, return 2
+when(mockCalculator.firstValue(4)).thenReturn(2);
+// returns true
+assertEquals(2, mockCalculator.firstValue(4));
+
+# Mocking with Mockito – return value when called twice example
+
+Calculator mockCalculator = mock(Calculator.class);
+
+// return 2 the first call, then 3 the second
+when(mockCalculator.firstValue()).thenReturn(2).thenReturn(3);
+// first call would return 2
+mockCalculator.firstValue();
+// second call so returns true as 3 is returned
+assertEquals(3, mockCalculator.firstValue());
+
+# Mocking – Mockito spy example
+
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.spy;
+
+Calculator calculator = new Calculator();
+Calculator spyCalculator = spy(calculator);
+
+when(spyCalculator.firstValue()).thenReturn(2);
+int result = spyCalculator.addFirstAndSecond();
+// both calls return 2 so should equal 4
+assertEquals(4, result);
+---
+#
+
+# Mocking Challenges Cheat Sheet
+
+# Mocking Challenges
+
+# Mocking - Mockito Spy Exception Example
+
+Calculator mockCalculator = spy(calculator);
+
+when(mockCalculator.firstValue()).thenThrow(Exception.class);
+
+// should throw exception
+
+System.out.println("First and second: " + mockCalculator.addFirstAndSecond());
+
+# Challenges
+
+- Avoid testing what you are mocking (only use mocks to provide return values to test main functionality)
+- Maximize how much real code is tested (mock as early as possible)
+- Avoid making the mocking code too complex
+- Avoid dependency injection and decoupling (fewer lines of code, more readable)
+- Consider whether to do black-box testing or white-box testing
+- Diminishing returns as you get closer to 100% code coverage
+
+# More on Mocking Challenges
+
+- Code coverage – how much of the code is exercised (run during test)
+- Case coverage – how many use cases are covered by the test suite
+- 100% code coverage does not guarantee 100% case coverage
+- Can be useless to test for things like null/negative values (if there is a validation layer that obviously prevents these cases)
+---
+#
+
+# Cheat Sheet - OOSE
+
+# Design Patterns Cheat Sheet
+
+# UML Diagrams for Design Patterns
+
+- Creational Patterns
+
+- Structural Patterns
+
+- Behavioral Patterns
+---
+#
+
+# OOSE Cheat Sheet
+
+# Control Coupling
+
+- Where one module/file/class controls the flow of another module by passing information on what to do
+- If a separate module determines the status of another (e.g. in a card game, if you had a separate module to determine if a person is bust)
+
+# Stamp Coupling
+
+- Where several modules/files/classes have access to shared composite data structures
+- Composite data structure = anything that has fields dynamically linked to component values of a data type
+- An integer would not be a composite data structure, but a list of strings would
+
+# Data Coupling
+
+- When modules/files/classes share data through parameters
+- e.g. passing an integer to a function to calculate the square root
+- e.g. BlackJack and CardGame have data coupling since BlackJack calls CardGame methods with parameters
+- You are tied to the method parameters
+
+# Coupling types – how strong?
+
+|Content|Common|Control|Stamp|Data|
+|---|---|---|---|---|
+|Tight| | | |Loose|
+
+# More on Cohesion
+
+A deployable unit is an executable program or process to run
+---
+#
+
+# OOSE Cheat Sheet
+
+# Object-Oriented Software Engineering (OOSE) Cheat Sheet
+
+# Design Patterns UML Diagrams
+
+- Singleton Pattern
+-
+
+Factory Method Pattern
+-
+
+Observer Pattern
+-
+
+Decorator Pattern
+---
+#
+
+# OOSE Cheat Sheet
+
+# Design Patterns UML Diagrams
+
+- Singleton Pattern
+-
+Factory Method Pattern
+-
+Observer Pattern
+-
+Decorator Pattern
+---
+#
+
+# OOSE Cheat Sheet
+
+# OOSE Cheat Sheet
+
+# UML Diagrams for Design Patterns
+
+Include UML diagrams for each design pattern here.
+
+# Advantages of High Cohesion (Separate Applications)
+
+- Independent development, deployment, and scalability
+- Reusability
+
+# Ways to Reduce Coupling and Increase Cohesion
+
+- REST web services
+- Messaging
+- Microservices
+- Feature switches
+
+# REST Web Services
+
+- Defined parameters in and out
+- Automated testing, versioning of output, high visibility of use
+
+# Messaging
+
+- Set up and configure a message bus
+- Send and receive messages
+- Messages are sent in JSON or XML versions
+
+# Microservices
+
+- Early 2000s monolithic systems combined all functionality into a single application
+- Microservices are smaller independent applications that have high cohesion and low coupling
+
+# Benefits of Microservices
+
+- Decoupling of logic
+- Changing one part less likely to affect the whole business
+- Can implement in different technologies
+- Independent environment, and easier to scale up a specific application/service
+
+# Challenges of Microservices
+
+- Not necessarily small
+- Cohesion high, coupling low (not necessarily easy to achieve)
+- Simple to understand but harder to implement
+- Monitoring challenges
+
+# Feature Switches
+
+- Deploy with a config to enable the feature
+- Switch on once other systems are ready
+- Need timing to switch on for all at the same time
+- Still creates delays but safer deployment
+---
+#
+
+# Decorator Pattern - Class Diagram
+
+# Decorator Pattern Class Diagram
+
+This is a class diagram illustrating the Decorator design pattern:
+
+Each Component can be used on its own or wrapped by a decorator. The ConcreteComponent is the object we are going to dynamically add new behavior to. ConcreteComponent extends Component. Decorator is the interface/abstract class that the ConcreteDecorators implement. ConcreteDecorators wrap the Component they are decorating.
+
+The ConcreteDecorator has an instance variable for the thing it decorates (the Component the Decorator wraps). Decorators can add behavior typically before or after existing methods of the Component. Decorators can extend the state of the Component: methods; however, new behavior is typically added by performing computations before or after the existing methods of the Component.
+---
+#
+
+# Decorator Pattern UML Diagram
+
+# Decorator Pattern Example UML Diagram
+
+# Shortcomings of Decorator Pattern
+
+- Decorators may not have an awareness of others in the stack (e.g. in a video game, you may want water and fire to cancel each other out)
+- Decorator patterns can be modified to have that awareness, but it's not the purpose of the design pattern
+
+# Class Explosions and Complexity
+
+- Small class explosions – following decorator can result in adding a lot of small classes to a design making it harder for some people to understand the system
+- Instantiation complexity – creating a decorator class can mean a lot of new lines of code (until you use factory pattern)
+- Typing problems – example:
+
+if (beverage1 instanceof DarkRoast) {
+// apply some discount
+}
+
+Example returns false as soon as a decorator/wrapper is added as beverage1 will not be seen as a DarkRoast
+---
+#
+
+# OOSE Cheat Sheet
+
+# OOSE Cheat Sheet
+
+# Decorator vs Strategy pattern – differences
+
+- Strategy – allows you to adjust functionality by recognising groups of behaviours
+- Decorator – allows you to build up a specific type of functionality
+- Decorator allows composing more complex behaviours at the expense of more complex class structure
+
+# UML Diagrams:
+
+Include UML diagrams for each design pattern here.
+---
+#
+
+# Week 9 - 9.2 (Requirements Gathering)
+
+# Week 9 - 9.2 (Requirements Gathering)
+
+# Scope
+
+- Establishes the high level description of the system you are building
+- Familiarises you with the domain in which you are working
+- Sets out what the software will achieve and what it will not
+- You need to be:
+- setting boundaries (what is in and out of scope)
+- there’s (usually) little point designing lots of things that are out of scope
+- defining business benefits (why will someone pay for this?)
+- the person paying has the final say on the software you build
+- define stakeholders (who uses and will be affected/impacted by this software)
+
+# Forming requirements
+
+- First identify decision makers by building on scoping
+- Identify stakeholders
+- Identify who has the knowledge (sometimes these people may not be stakeholders – you may want to bring in a legal team for data protection)
+- Formulate detailed requirements with these groups
+- Ultimately, tie back development and testing to requirements
+
+# Agile methodology
+
+- Common enough to be considered best-practice/norm in software development
+- 6 phases (sprints) performed in a time-boxed cycle with fixed time lengths
+- Constant collaboration with stakeholders/other groups during each phase
+---
+#
+
+# Requirements Gathering Methods
+
+# Requirements Gathering Methods - Prototype
+
+Prototypes are early representations of the system that are discarded after they are used to gather information. They are not iterations of the software and the material used to build them is not well-engineered, secure, or reliable.
+
+Prototypes are useful when:
+
+- The requirements are unknown or unclear
+- The technology is unknown
+- It is a new team
+- Early knowledge and feedback are needed
+
+# More on Prototypes
+
+Prototypes can be divided into:
+
+- Low or high fidelity based on the effort needed to make them
+- Functional and non-functional depending on whether someone can interact with them or only look at them
+
+Examples of prototypes include:
+
+- A drawing of a user interface: low fidelity, non-functional
+- A PowerPoint slideshow with buttons built-in: low fidelity, functional
+- A webpage showing a proposed UI: high fidelity, non-functional
+- An early version of the software with no persistence between sessions: high fidelity, functional
+
+# Requirements Gathering Methods - Questions
+
+When talking to people, various methods can be used to solicit information:
+
+- Likert scale
+- Categorical
+- True/false
+- Closed question
+- Open-ended question
+
+Prototypes can also be used as a subject for questions.
+---
+#
+
+# OOSE Cheat Sheet
+
+# OOSE Cheat Sheet
+
+# Design Patterns UML Diagrams
+
+- Singleton Pattern
+-
+
+Factory Method Pattern
+-
+
+Observer Pattern
+---
+#
+
+# Structured Interviews Cheat Sheet
+
+# Structured Interviews Cheat Sheet
+
+# Structured interviews
+
+- A fixed list of questions for when you know what you need to find out
+- Benefits:
+- Consistency in the responses
+- Allows for easy comparison with other participants
+- Means the interviewer does not need to be skilled
+- Drawbacks:
+- No follow-ups to compensate for lack of detail in the questions
+- It’s boring
+
+# Unstructured interviews
+
+- Open questions, with no set list of questions
+- Benefits:
+- Follow-ups for lack of detail
+- Can tell you things you did not know you needed to know
+- Drawbacks:
+- Difficult to compare with other participants
+- No consistency in the data gathered
+- Interviewer does need to be skilled
+
+# Semi-structured interview
+
+- A list of set questions or a topic guide with areas you want to touch upon, with follow-up unscripted questions that depend on answers
+- Advantages:
+- Allow more flexibility in interviewing
+- Gain more complete responses when unclear answers can be further discussed
+- Disadvantages:
+- Include lack of consistency
+- Influenced by unskilled interviewer
+
+# Group meetings – focus group
+
+- Focus groups are small group discussion sessions with 2 facilitators - 1 to lead discussion, 1 to take notes/look for follow-up opportunities
+- They have 3-8 stakeholders
+---
+#
+
+# Course Cheat Sheet - OOSE
+
+# Cheat Sheet for OOSE Course
+
+# UML Diagrams for Design Patterns
+
+No UML diagrams are included in this cheat sheet.
+
+# Focus Groups
+
+- Focus groups promote co-questioning, where stakeholders can ask each other questions that the facilitators don’t know to ask.
+- Focus groups are not the same thing as a group interview for this reason.
+- Considerations for group formulation and facilitation:
+- Draw stakeholders from a single category or diverse backgrounds?
+- Do you want stakeholders who know each other already or not?
+- The loudest voice isn’t necessarily the most valuable.
+- How do you make people comfortable speaking in front of their boss?
+
+# Requirements Gathering Workshop
+
+- A form of focus group where key stakeholders must be represented.
+- Decision makers are present for relevant stakeholder groups.
+- You have a facilitator, moderator, or chair.
+- You have a scribe to take key notes and record.
+
+# More on Requirements Gathering Workshops
+
+- The scribe understands the subject to help identify key points.
+- There should not be too many people (e.g. >15 people is difficult to control).
+- You have a clear agenda to time-box areas for discussion.
+- You have a clear action list to be agreed at the end of the meeting.
+- You have a “to be discussed later” list to allow topics to be tackled later to avoid derailing key points.
+
+# User Stories
+
+- Consist of:
+- The person using the service (the actor).
+- What the user needs the service for (the narrative).
+- Why the user needs it (the goal).
+
+# User Story Basic Form
+
+As a… [who is the user?]
+
+I need/want/expect to… [what does the user want to do?]
+
+So that… [why does the user want to do this?]
+
+# Card Game User Story Example
+
+- As a card player (dealer), I want to deal the cards so that the game can start.
+- As a dealer, I want to determine the winner so I can declare a winner.
+- As the first player, I want to play a card, so that the game progresses.
+- As the next player, I want to play a card, so that the game progresses.
