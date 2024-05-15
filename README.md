@@ -24,7 +24,9 @@ OOSE-AI-Question-Generator is a Python-based tool that leverages OpenAI's new GP
 git clone https://github.com/turiddu25/OOSE-AI-Question-Generator.git
 ```
 2. Install the required Python packages:
+```
 pip install -r requirements.txt
+```
 
 3. Set up your OpenAI API key:
 - Create an account on the [OpenAI website](https://platform.openai.com/signup).
