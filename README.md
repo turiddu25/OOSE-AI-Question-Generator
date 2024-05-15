@@ -40,7 +40,10 @@ pip install -r requirements.txt
 
 1. Place your data files in the `data` directory. These files should contain the content you want to generate questions about.
 2. Place your format files in the `format` directory. These files should contain example questions that you want to use as a reference.
-3. Run the script:python generate_questions.py
+3. Run the script:
+```
+python generate_questions.py
+```
 4. Enter the number of questions you want to generate when prompted.
 5. The script will generate questions based on the combined data from all files in the `data` directory and save the generated questions in the `generated_questions` directory. The output files will be named based on the format files.
 
