@@ -2,7 +2,7 @@
 
 ## Overview
 
-OOSE-AI-Question-Generator is a Python-based tool that leverages OpenAI's new GPT-4o model to generate questions and answers based on a given cheat sheet. This tool is particularly useful for creating study materials or quizzes, in this case used for the Object-Oriented Software Engineering (OOSE) course.
+OOSE-AI-Question-Generator is a Python-based tool that leverages OpenAI's new GPT-4o model to generate questions and answers based on a given cheat sheet. This tool is particularly useful for creating study materials or quizzes, in this case used for the Object-Oriented Software Engineering (OOSE) course. It now includes a comprehensive quiz feature with a similarity checker and analytics functionality.
 
 ## Features
 
@@ -14,6 +14,9 @@ OOSE-AI-Question-Generator is a Python-based tool that leverages OpenAI's new GP
 - Supports a graphical user interface (GUI) for a more user-friendly experience.
 - Expands input formats to include PDFs and DOCX files, increasing versatility.
 - Includes analytics functionality to track question types and difficulty levels, providing insights for refinement.
+- **New Quiz Feature**: Allows users to select the number of questions for a quiz, with questions served based on their difficulty level.
+- **Similarity Checker**: Integrated into the quiz feature, comparing user responses to correct answers and providing accuracy feedback.
+- **End-of-Quiz Data Display**: At the end of each quiz, users are presented with data on their performance, including questions answered correctly, incorrectly, and the difficulty levels of questions attempted.
 
 ## Prerequisites
 
