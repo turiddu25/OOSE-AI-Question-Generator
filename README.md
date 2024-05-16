@@ -11,11 +11,16 @@ OOSE-AI-Question-Generator is a Python-based tool that leverages OpenAI's new GP
 - Prompts the user for the number of questions to generate.
 - Generates new questions and answers based on the combined cheat sheet.
 - Saves the generated questions to output files named based on the format files.
+- Supports a graphical user interface (GUI) for a more user-friendly experience.
+- Expands input formats to include PDFs and DOCX files, increasing versatility.
+- Includes analytics functionality to track question types and difficulty levels, providing insights for refinement.
 
 ## Prerequisites
 
 - Python 3.6 or higher
 - An OpenAI API key
+- Dependencies for PDF and DOCX processing
+- GUI library
 
 ## Installation
 
@@ -38,6 +43,18 @@ pip install -r requirements.txt
 
 ## Usage
 
+### GUI Usage
+
+To use the graphical user interface (GUI) for generating questions:
+
+1. Run the script:
+```
+python question_generator.py
+```
+2. The GUI will prompt you for the number of questions to generate and allow you to select input files directly.
+
+### Command Line
+
 1. Place your data files in the `data` directory. These files should contain the content you want to generate questions about.
 2. Place your format files in the `format` directory. These files should contain example questions that you want to use as a reference.
 3. Run the script:
@@ -47,6 +64,9 @@ python generate_questions.py
 4. Enter the number of questions you want to generate when prompted.
 5. The script will generate questions based on the combined data from all files in the `data` directory and save the generated questions in the `generated_questions` directory. The output files will be named based on the format files.
 
+## Analytics
+
+The analytics feature tracks the types of questions generated and their difficulty levels. This data is stored in the `analytics` directory and can be used to refine the question generation process.
 
 ## Example
 
@@ -61,6 +81,3 @@ Running the script and entering `10` when prompted will generate 10 questions an
 ## License
 
 This project is licensed under the MIT License.
-
-
-
