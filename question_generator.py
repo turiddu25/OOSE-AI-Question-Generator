@@ -5,6 +5,8 @@ from dotenv import load_dotenv
 from tkinter import Tk, Label, Entry, Button, filedialog
 import PyPDF2
 import docx
+from quiz.quiz_manager import QuizManager
+from quiz.quiz_ui import QuizUI
 
 # Load environment variables
 load_dotenv()
@@ -90,6 +92,8 @@ def gui():
 
     Button(root, text="Generate", command=generate).grid(row=1, columnspan=2)
 
+    quiz_manager = QuizManager(question_bank=[])  # Placeholder for actual question bank initialization
+    quiz_ui = QuizUI(root, quiz_manager)
     root.mainloop()
 
 def main():

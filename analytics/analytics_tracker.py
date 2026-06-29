@@ -19,13 +19,26 @@ class AnalyticsTracker:
             file.seek(0)
             json.dump(data, file, indent=4)
 
+    def assess_question_difficulty(self, question_content):
+        # This is a placeholder for the actual implementation
+        # The difficulty assessment criteria should be defined here
+        # For now, it returns a dummy difficulty level
+        return "medium"
+
+    def store_assessed_difficulty(self, question_content, assessed_difficulty):
+        with open(self.analytics_file, 'r+') as file:
+            data = json.load(file)
+            data.append({'question_content': question_content, 'assessed_difficulty': assessed_difficulty})
+            file.seek(0)
+            json.dump(data, file, indent=4)
+
     def summarize_data(self):
         with open(self.analytics_file, 'r') as file:
             data = json.load(file)
             summary = {}
             for entry in data:
-                question_type = entry['question_type']
-                difficulty_level = entry['difficulty_level']
+                question_type = entry.get('question_type')
+                difficulty_level = entry.get('difficulty_level', entry.get('assessed_difficulty'))
                 if question_type not in summary:
                     summary[question_type] = {'count': 0, 'difficulty_levels': {}}
                 summary[question_type]['count'] += 1
